@@ -93,6 +93,7 @@ No country-to-region mapping is needed.
 - If any order line has insufficient stock, reject the entire order.
 - Use transactional stock checks only; do not add optimistic concurrency handling for this task.
 - Persist pricing snapshots on the order at creation time so historical reads do not change when catalog prices change later.
+- `DiscountedQuantity` on an order line means the number of units in that line that received the line discount. For the holiday sale this is one unit; for whole-line discounts it matches the full quantity.
 
 Snapshot data should include the applied pricing inputs and totals needed to explain the final amount.
 
