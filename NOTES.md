@@ -28,8 +28,7 @@ A small multi-project solution:
 
 ## Configuration
 
-- Add real `.env` support.
-- Also keep normal ASP.NET Core configuration patterns.
+- Use standard ASP.NET Core configuration with `appsettings` and environment variables.
 - Use a feature flag for development seed data so it can be easily disabled.
 
 ## API Scope
