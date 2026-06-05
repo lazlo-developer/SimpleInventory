@@ -144,6 +144,10 @@ Volume discounts are evaluated per order line, based on quantity of a single pro
 
 - Use FluentValidation for all request validation.
 - Keep validation separate from controllers and handlers.
+- Application commands and queries define the validated request contracts used by the API flow.
+- Customer updates will use full-replacement semantics.
+- MediatR pipeline validation is preferred over controller-level validation so the application layer enforces the same rules regardless of the caller.
+- This keeps handlers focused on business logic, avoids repeating validation in each controller action, and lets future non-HTTP entry points reuse the same command/query validation behavior.
 
 ### Error Responses
 
@@ -179,3 +183,4 @@ This file captures:
 - Product API is intentionally limited to the explicitly listed endpoints, even though the original objective mentions CRUD more broadly.
 - Order editing and cancellation are out of scope.
 - List endpoints remain unpaginated because the task focuses on business rules rather than query features.
+- Validation is executed through the MediatR pipeline instead of ASP.NET controller model validation to keep CQRS request rules centralized in the application layer, at the cost of a bit more infrastructure setup.
