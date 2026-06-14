@@ -25,4 +25,4 @@ jobs:
       - name: Build
         run: dotnet build SimpleInventory.sln --no-restore
       - name: Test
-        run: dotnet test SimpleInventory.sln --no-build --verbosity normal
+        run: dotnet test SimpleInventory.sln --no-build --no-restore --verbosity normal
